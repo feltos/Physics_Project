@@ -6,14 +6,20 @@
 #include "Rigidbody.h"
 #include "Vector2.h"
 #include "vector3.h"
+#include <time.h>
+#include <ctime>
 
 int main()
 {
-	Rigidbody rond1(1.0f, 1.0f, 5.0f, 5.0f);
+	Rigidbody rond1(-1.0f, 0.0f, 5.0f, 0.0f);
+	Rigidbody rond2(2.0f, 0.0f, -5.0f, 0.0f);
+	rond2.force = Vector2(1, 2);
 
-	Vector2 A (8, 1);
-	Vector3 B(1, 1, 0);
-	std::cout << rond1.position.x << rond1.vitesse.x << "\n";
+	for (float t = 0.0f; t < 1.0f; t += 1.0f / 60.0f)
+	{
+		rond2.Update();
+	}
+	
 	system("pause");
     return 0;
 }
