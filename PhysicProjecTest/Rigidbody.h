@@ -11,11 +11,12 @@ public:
 	Vector2 force;
 	float mass;
 	Vector2 acceleration;
-	Vector2 Direction;
+	Vector2 direction;
 
 	Rigidbody(float vx, float vy,float px, float py);	
 	Vector2 Addforce(Vector2 forceF);
 	Vector2 AddAcceleration(Vector2 acceleration);
+	Vector2 Direction(Vector2 position1, Vector2 position2);
 	void Update();
 
 	~Rigidbody();
