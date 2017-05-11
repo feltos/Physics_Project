@@ -2,15 +2,21 @@
 #include "Vector2.h"
 #include "vector3.h"
 #include "iostream"
+#include <iomanip>
 #include <time.h>
 #include <ctime>
 
 Rigidbody::Rigidbody(float vx, float vy, float px, float py)
 {
+	///////////pour le temps qui passe///////////////
+	clock_t start_s = clock();
+
 	vitesse.x = vx;
 	vitesse.y = vy;
 	position.x = px;
 	position.y = py;
+	acceleration.x = 0.0;
+	acceleration.y = 0.0;
 }
 
 Vector2 Rigidbody::Direction(Vector2 P1, Vector2 P2)
@@ -20,28 +26,43 @@ Vector2 Rigidbody::Direction(Vector2 P1, Vector2 P2)
 	return direction;
 }
 
-Vector2 Rigidbody::Addforce(Vector2 F)
+Vector2 Rigidbody::Addforce(Vector2 newForce)
 {
-	F.x = mass * acceleration.x;
-	F.y = mass * acceleration.y;
-	return F;
+	force.x = mass * newForce.x;
+	force.y = mass * newForce.y;
+	return force;
 }
 
-Vector2 Rigidbody::AddAcceleration(Vector2 A)
+Vector2 Rigidbody::SetAcceleration()
 {
-	A.x = force.x / mass;
-	A.y = force.y / mass;
-	return A;
+	acceleration.x = force.x / mass;
+	acceleration.y = force.y / mass;
+	return acceleration;
+}
+
+Vector2 Rigidbody::GetPosition()
+{
+	return position;
+}
+
+void Rigidbody::SetMass(float m)
+{
+	mass = m;
 }
 
 void Rigidbody::Update()
 {
-	///////////pour le temps qui passe///////////////
-	clock_t start_s = clock();
-	///////////////////////MRUA//////////////////////////
-	position.x += ((1 / 2)* acceleration.x) + vitesse.x;
-	position.y += ((1 / 2)* acceleration.y) * (clock() * clock()) + vitesse.y * clock();
-	std::cout << "x = " << position.x << " , " << "y = " << position.y << "\n";
+	
+	for (float t = 0.0f; t <= 1.0f; t += 1.0f / 60.0f)
+	{
+		clock_t time = clock();
+		float ti = float(time)/1000.0f;
+		///////////////////////MRUA//////////////////////////
+		position.x += ((1.0f/2.0f) * acceleration.x) * (ti * ti) + vitesse.x * ti;
+		position.y += ((1.0f/2.0f) * acceleration.y) * (ti * ti) + vitesse.y * ti;
+		std::cout << "x = " << position.x << " , " << "y = " << position.y << "\n";
+	}
+	
 }
 
 
