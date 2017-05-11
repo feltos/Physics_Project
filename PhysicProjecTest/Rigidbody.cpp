@@ -26,10 +26,12 @@ Vector2 Rigidbody::Direction(Vector2 P1, Vector2 P2)
 	return direction;
 }
 
-Vector2 Rigidbody::Addforce(Vector2 newForce)
+Vector2 Rigidbody::Addforce(Vector2 newAcceleration)
 {
-	force.x = mass * newForce.x;
-	force.y = mass * newForce.y;
+	force.x = mass * newAcceleration.x;
+	force.y = mass * newAcceleration.y;
+	
+	SetAcceleration();
 	return force;
 }
 
@@ -52,15 +54,15 @@ void Rigidbody::SetMass(float m)
 
 void Rigidbody::Update()
 {
-	
 	for (float t = 0.0f; t <= 1.0f; t += 1.0f / 60.0f)
 	{
 		clock_t time = clock();
 		float ti = float(time)/1000.0f;
+
 		///////////////////////MRUA//////////////////////////
 		position.x += ((1.0f/2.0f) * acceleration.x) * (ti * ti) + vitesse.x * ti;
 		position.y += ((1.0f/2.0f) * acceleration.y) * (ti * ti) + vitesse.y * ti;
-		std::cout << "x = " << position.x << " , " << "y = " << position.y << "\n";
+		std::cout<< std::fixed << "x = " << position.x << " , " << "y = " << position.y << "\n";
 	}
 	
 }
