@@ -17,13 +17,22 @@ Rigidbody::Rigidbody(float vx, float vy, float px, float py)
 	position.y = py;
 	acceleration.x = 0.0;
 	acceleration.y = 0.0;
+	force.x = 0.0;
+	force.y = 0.0;
 }
 
-Vector2 Rigidbody::Direction(Vector2 P1, Vector2 P2)
+bool Rigidbody::Delta(Vector2 P1, Vector2 P2)
 {
-	direction.x = P1.x - P2.x;
-	direction.y = P1.y - P2.y;
-	return direction;
+	delta.x = P1.x - P2.x;
+	delta.y = P1.y - P2.y;
+
+	float intersectX = abs(delta.x) - (this->size.x - size.x);
+	float intersectY = abs(delta.y) - (this->size.y - size.y);
+
+	if (intersectX < 0.0f && intersectY < 0.0f)
+	{
+		return true;
+	}
 }
 
 Vector2 Rigidbody::Addforce(Vector2 newAcceleration)
@@ -39,6 +48,7 @@ Vector2 Rigidbody::SetAcceleration()
 {
 	acceleration.x = force.x / mass;
 	acceleration.y = force.y / mass;
+
 	return acceleration;
 }
 
@@ -50,6 +60,7 @@ Vector2 Rigidbody::GetPosition()
 void Rigidbody::SetMass(float m)
 {
 	mass = m;
+	
 }
 
 void Rigidbody::Update()
