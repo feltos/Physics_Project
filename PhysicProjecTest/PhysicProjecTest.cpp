@@ -25,7 +25,6 @@ int main()
 	sf::CircleShape shape(50.f);
 	shape.setOrigin(-200.0f,-200.0f);
 	shape.setFillColor(sf::Color::Green);
-	
 
 	while (window.isOpen())
 	{

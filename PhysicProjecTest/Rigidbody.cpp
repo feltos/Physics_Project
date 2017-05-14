@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <time.h>
 #include <ctime>
+#include "AABB.h"
 
 Rigidbody::Rigidbody(float vx, float vy, float px, float py)
 {
@@ -21,18 +22,19 @@ Rigidbody::Rigidbody(float vx, float vy, float px, float py)
 	force.y = 0.0;
 }
 
-bool Rigidbody::Delta(Vector2 P1, Vector2 P2)
+Vector2 Rigidbody::Delta(Vector2 P1, Vector2 P2)
 {
 	delta.x = P1.x - P2.x;
 	delta.y = P1.y - P2.y;
+	////////////pour AABB mais ne sait pas bien comment l'utiliser//////////////7
+	float intersectX = abs(delta.x) - (this->size.x + size.x);
+	float intersectY = abs(delta.y) - (this->size.y + size.y);
 
-	float intersectX = abs(delta.x) - (this->size.x - size.x);
-	float intersectY = abs(delta.y) - (this->size.y - size.y);
-
-	if (intersectX < 0.0f && intersectY < 0.0f)
+	if (intersectX <= 0.0f && intersectY <= 0.0f)
 	{
-		return true;
+		collide = true;
 	}
+	return delta;
 }
 
 Vector2 Rigidbody::Addforce(Vector2 newAcceleration)
@@ -70,12 +72,11 @@ void Rigidbody::Update()
 		clock_t time = clock();
 		float ti = float(time)/1000.0f;
 
-		///////////////////////MRUA//////////////////////////
-		position.x += ((1.0f/2.0f) * acceleration.x) * (ti * ti) + vitesse.x * ti;
-		position.y += ((1.0f/2.0f) * acceleration.y) * (ti * ti) + vitesse.y * ti;
-		std::cout<< std::fixed << "x = " << position.x << " , " << "y = " << position.y << "\n";
-	}
-	
+			///////////////////////MRUA//////////////////////////
+			position.x += ((1.0f / 2.0f) * acceleration.x) * (ti * ti) + vitesse.x * ti;
+			position.y += ((1.0f / 2.0f) * acceleration.y) * (ti * ti) + vitesse.y * ti;
+			std::cout << std::fixed << "x = " << position.x << " , " << "y = " << position.y << "\n";
+	}	
 }
 
 

@@ -3,14 +3,16 @@
 #include "Rigidbody.h"
 #include "Vector2.h"
 #include "vector3.h"
-class Collider
+#include <list>
+#include "World.h"
+class AABB
 {
 public:
-	Collider(Rigidbody);
-	~Collider();
+	AABB();
 
-	bool CheckCollision(Collider& other);
+	void GenerateCollisions(_LIST_ Rigidbody);
 
+	~AABB();
 
 private:
 	
