@@ -1,7 +1,7 @@
-#pragma once
-#include "Vector3.h"
 
-#ifndef Vector2
+#ifndef VECTOR2_H
+#define VECTOR2_H
+#include "Vector3.h"
 
 class Vector2
 {
@@ -25,5 +25,6 @@ public:
 
 	~Vector2();
 
-#endif // !Vector2
 };
+
+#endif // !VECTOR2_H

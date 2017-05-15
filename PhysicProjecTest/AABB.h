@@ -1,20 +1,23 @@
-#pragma once
+#ifndef AABB_H
+#define AABB_H
+
 #include <SFML/Graphics.hpp>
 #include "Rigidbody.h"
 #include "Vector2.h"
 #include "vector3.h"
 #include <list>
 #include "World.h"
-class AABB
-{
-public:
-	AABB();
 
-	void GenerateCollisions(_LIST_ Rigidbody);
+struct AABB
+{
+	AABB(Vector2 c, Vector2 s);
+	Vector2 center;
+	Vector2 size;
+
+	void GenerateCollisions();
 
 	~AABB();
+}; 
 
-private:
-	
-};
+#endif // !AABB
 

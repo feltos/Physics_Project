@@ -1,7 +1,9 @@
-#pragma once
+#ifndef VECTOR3_H
+#define VECTOR3_H
+
 class Vector3
 {
-#ifndef Vector3
+
 
 public:
 	Vector3(float x, float y, float z);
@@ -22,5 +24,6 @@ public:
 	static float AnglesBetween(Vector3 v1, Vector3 v2);
 	void Show();
 	~Vector3();
-#endif // !Vector3
+
 };
+#endif // !VECTOR3_H

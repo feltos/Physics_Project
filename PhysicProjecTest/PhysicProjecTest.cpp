@@ -1,30 +1,35 @@
 // PhysicProjecTest.cpp : définit le point d'entrée pour l'application console.
 //
 
-#include "stdafx.h"
 #include "iostream"
-#include "Rigidbody.h"
 #include "Vector2.h"
 #include "vector3.h"
 #include <time.h>
 #include <ctime>
 #include <SFML/Graphics.hpp>
+#include "World.h"
 
 int main()
 {
+	World w;
+
 	sf::RenderWindow window(sf::VideoMode(600, 600), "SFML works!");
-
+	Vector2 a(5.0f, 5.0f);
 	///////////création des rigidbody/////////
-	Rigidbody square(0.0f, 0.0f, 0.0f, 0.0f);
-
+	Rigidbody* body = w.addBodyWorld();
+	body->SetPos(a);
 	///////////ajout / modif des attributs ///////////////
-	square.Addforce(Vector2(0.1f, 0.0f));
-	square.SetMass(1.0f);
-	square.Update();
+	/*body.Addforce(Vector2(0.1f, 0.0f));
+	body.SetMass(1.0f);
+	body.Update();*/
 	
 	sf::CircleShape shape(50.f);
 	shape.setOrigin(-200.0f,-200.0f);
 	shape.setFillColor(sf::Color::Green);
+
+	
+
+	
 
 	while (window.isOpen())
 	{
@@ -34,6 +39,7 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
+
 
 		window.clear();
 		window.draw(shape);

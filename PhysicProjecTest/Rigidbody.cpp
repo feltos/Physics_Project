@@ -6,16 +6,13 @@
 #include <time.h>
 #include <ctime>
 #include "AABB.h"
+#include "World.h"
 
-Rigidbody::Rigidbody(float vx, float vy, float px, float py)
+Rigidbody::Rigidbody()
 {
 	///////////pour le temps qui passe///////////////
 	clock_t start_s = clock();
 
-	vitesse.x = vx;
-	vitesse.y = vy;
-	position.x = px;
-	position.y = py;
 	acceleration.x = 0.0;
 	acceleration.y = 0.0;
 	force.x = 0.0;
@@ -30,10 +27,6 @@ Vector2 Rigidbody::Delta(Vector2 P1, Vector2 P2)
 	float intersectX = abs(delta.x) - (this->size.x + size.x);
 	float intersectY = abs(delta.y) - (this->size.y + size.y);
 
-	if (intersectX <= 0.0f && intersectY <= 0.0f)
-	{
-		collide = true;
-	}
 	return delta;
 }
 
@@ -61,20 +54,29 @@ Vector2 Rigidbody::GetPosition()
 
 void Rigidbody::SetMass(float m)
 {
-	mass = m;
-	
+	mass = m;	
+}
+
+void Rigidbody::SetPos(Vector2 newPos)
+{
+	position = newPos;
+}
+
+void Rigidbody::SetSpeed(Vector2 newSpeed)
+{
+	speed = newSpeed;
 }
 
 void Rigidbody::Update()
 {
-	for (float t = 0.0f; t <= 1.0f; t += 1.0f / 60.0f)
+	for (float t = 0.0f; ; t += 1.0f / 60.0f)
 	{
 		clock_t time = clock();
 		float ti = float(time)/1000.0f;
 
 			///////////////////////MRUA//////////////////////////
-			position.x += ((1.0f / 2.0f) * acceleration.x) * (ti * ti) + vitesse.x * ti;
-			position.y += ((1.0f / 2.0f) * acceleration.y) * (ti * ti) + vitesse.y * ti;
+			position.x += ((1.0f / 2.0f) * acceleration.x) * (ti * ti) + speed.x * ti;
+			position.y += ((1.0f / 2.0f) * acceleration.y) * (ti * ti) + speed.y * ti;
 			std::cout << std::fixed << "x = " << position.x << " , " << "y = " << position.y << "\n";
 	}	
 }

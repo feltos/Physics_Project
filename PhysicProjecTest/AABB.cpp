@@ -1,7 +1,6 @@
 #include "AABB.h"
-#include <list>
 
-AABB::AABB()
+AABB::AABB(Vector2 c, Vector2 s)
 {
 
 }
