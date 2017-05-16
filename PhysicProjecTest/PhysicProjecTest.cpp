@@ -3,34 +3,14 @@
 
 #include "iostream"
 #include "Vector2.h"
-#include "vector3.h"
-#include <time.h>
-#include <ctime>
-#include <SFML/Graphics.hpp>
 #include "World.h"
-
+#include "AABB.h"
+#include <SFML\Graphics.hpp>
 int main()
 {
-	World w;
-
-	sf::RenderWindow window(sf::VideoMode(600, 600), "SFML works!");
-	Vector2 a(5.0f, 5.0f);
-	///////////création des rigidbody/////////
-	Rigidbody* body = w.addBodyWorld();
-	body->SetPos(a);
-	///////////ajout / modif des attributs ///////////////
-	/*body.Addforce(Vector2(0.1f, 0.0f));
-	body.SetMass(1.0f);
-	body.Update();*/
-	
-	sf::CircleShape shape(50.f);
-	shape.setOrigin(-200.0f,-200.0f);
-	shape.setFillColor(sf::Color::Green);
-
-	
-
-	
-
+	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	AABB rect1;
+	AABB rect2;
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -40,12 +20,11 @@ int main()
 				window.close();
 		}
 
-
 		window.clear();
-		window.draw(shape);
+		window.draw(rect1,rect2);
 		window.display();
 	}
-	system("pause");
-    return 0;
+
+	return 0;
 }
 

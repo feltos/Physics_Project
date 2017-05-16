@@ -13,22 +13,14 @@ Rigidbody::Rigidbody()
 	///////////pour le temps qui passe///////////////
 	clock_t start_s = clock();
 
+	aabb.size = Vector2(1,1);
 	acceleration.x = 0.0;
 	acceleration.y = 0.0;
 	force.x = 0.0;
 	force.y = 0.0;
 }
 
-Vector2 Rigidbody::Delta(Vector2 P1, Vector2 P2)
-{
-	delta.x = P1.x - P2.x;
-	delta.y = P1.y - P2.y;
-	////////////pour AABB mais ne sait pas bien comment l'utiliser//////////////7
-	float intersectX = abs(delta.x) - (this->size.x + size.x);
-	float intersectY = abs(delta.y) - (this->size.y + size.y);
 
-	return delta;
-}
 
 Vector2 Rigidbody::Addforce(Vector2 newAcceleration)
 {
@@ -60,6 +52,7 @@ void Rigidbody::SetMass(float m)
 void Rigidbody::SetPos(Vector2 newPos)
 {
 	position = newPos;
+	aabb.center = position;
 }
 
 void Rigidbody::SetSpeed(Vector2 newSpeed)
