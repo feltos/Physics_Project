@@ -13,6 +13,11 @@ Vector2::Vector2()
 
 }
 
+sf::Vector2f Vector2::GetSfmlVector()
+{
+	return sf::Vector2f(x,y);
+}
+
 Vector2 Vector2::operator+(Vector2 v1)
 {
 	Vector2 V(0.0f, 0.0f);

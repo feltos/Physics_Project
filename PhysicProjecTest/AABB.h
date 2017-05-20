@@ -14,7 +14,12 @@ struct AABB
 	Vector2 center;
 	Vector2 size;
 
-	void update();
+	void SetCenter(Vector2 c);
+	void SetSize(Vector2 s);
+
+	void move();
+
+	void update(sf::RenderWindow* w);
 
 	sf::RectangleShape rectangle;
 	bool isColliding(AABB*);

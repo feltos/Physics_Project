@@ -2,7 +2,7 @@
 #ifndef VECTOR2_H
 #define VECTOR2_H
 #include "Vector3.h"
-
+#include <SFML/System.hpp>
 class Vector2
 {
 public:
@@ -22,6 +22,7 @@ public:
 	static Vector2 Refl(Vector2 inDir, Vector2 normal);
 	static float AnglesBetween(Vector2 v1, Vector2 v2);
 	void Show();
+	sf::Vector2f GetSfmlVector();
 
 	~Vector2();
 
