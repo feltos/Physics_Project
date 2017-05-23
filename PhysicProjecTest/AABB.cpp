@@ -12,7 +12,7 @@ AABB::AABB()
 {
 	center = Vector2(0.0f, 0.0f);
 	size = Vector2(0.0f, 0.0f);
-	rectangle.setSize(sf::Vector2f (100.0f,100.0f));
+	rectangle.setSize(sf::Vector2f (0.0f,0.0f));
 	rectangle.setFillColor(sf::Color::Green);
 }
 
@@ -28,31 +28,7 @@ void AABB::SetSize(Vector2 s)
 	rectangle.setSize(s.GetSfmlVector());
 }
 
-void AABB::move()
-{
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-	{
-		rectangle.move(0.1, 0);
-		center = center + Vector2(0.1, 0);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-	{
-		rectangle.move(-0.1, 0);
-		center = center + Vector2(-0.1, 0);
-	}	
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-	{
-		rectangle.move(0, -0.1);
-		center = center + Vector2(0, -0.1);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-	{
-		rectangle.move(0, 0.1);
-		center = center + Vector2(0, 0.1);
-	}
-}
-
-bool AABB::isColliding(AABB* aabb)
+bool AABB::IsOverlapping(AABB* aabb)
 {
 	if ((this->center.x + this->size.x) < aabb->center.x || this->center.x > (aabb->center.x + aabb->size.x))
 	{

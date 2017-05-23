@@ -17,12 +17,10 @@ struct AABB
 	void SetCenter(Vector2 c);
 	void SetSize(Vector2 s);
 
-	void move();
-
 	void update(sf::RenderWindow* w);
 
 	sf::RectangleShape rectangle;
-	bool isColliding(AABB*);
+	bool IsOverlapping(AABB*);
 
 	~AABB();
 }; 
