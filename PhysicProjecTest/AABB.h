@@ -21,7 +21,7 @@ struct AABB
 
 	sf::RectangleShape rectangle;
 	bool IsOverlapping(AABB*);
-
+	void setCenter(Vector2 position);
 	~AABB();
 }; 
 

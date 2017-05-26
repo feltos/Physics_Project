@@ -26,6 +26,11 @@ void AABB::SetSize(Vector2 s)
 	rectangle.setSize(s.GetSfmlVector());
 }
 
+void AABB::setCenter(Vector2 p)
+{
+	center = p;
+}
+
 bool AABB::IsOverlapping(AABB* aabb)
 {
 	if ((this->center.x + this->size.x) < aabb->center.x || this->center.x > (aabb->center.x + aabb->size.x))
