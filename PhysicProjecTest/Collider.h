@@ -16,6 +16,7 @@ public:
 	virtual bool is_colliding(Collider*) = 0;
 	Collider(Vector2 offset, Rigidbody* rigidbody);
 	sf::Shape* shape;
+	void setOffset(Vector2 offset);
 	~Collider();
 };
 

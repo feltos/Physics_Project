@@ -8,16 +8,18 @@
 class GameObject
 {
 private:
+	Vector2 Size;
+	Vector2 position;
+	sf::RectangleShape rect;
+public:
+	GameObject(Vector2 size,Vector2 position);
+
 	Rigidbody* rigidbody;
 	AABB aabb;
 	Collider* collider;
-
-public:
-	GameObject(Shapetype shape);
-	enum class Shapetype {RECT, CIRCLE};
-		
-		
-
+	
+	void SetPos(Vector2 position);
+	void draw(sf::RenderWindow&);
 	~GameObject();
 };
 #endif // !GameObject

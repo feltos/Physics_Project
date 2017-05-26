@@ -12,8 +12,6 @@ AABB::AABB()
 {
 	center = Vector2(0.0f, 0.0f);
 	size = Vector2(0.0f, 0.0f);
-	rectangle.setSize(sf::Vector2f (0.0f,0.0f));
-	rectangle.setFillColor(sf::Color::Green);
 }
 
 void AABB::SetCenter(Vector2 c)

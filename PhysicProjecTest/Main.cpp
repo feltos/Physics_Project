@@ -4,13 +4,13 @@
 #include "iostream"
 #include "Vector2.h"
 #include "World.h"
-#include "AABB.h"
-#include "Collider.h"
 #include <SFML\Graphics.hpp>
+#include "GameObject.h"
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
-	
+	GameObject rect1(Vector2(50.0f, 50.0f), Vector2(50.0f, 50.0f)); 
+	rect1.SetPos(Vector2(300.0f, 100.0f));
 
 	while (window.isOpen())
 	{
@@ -21,7 +21,7 @@ int main()
 				window.close();
 		}
 		window.clear();
-		
+		rect1.draw(window);
 		window.display();
 	}
 	return 0;

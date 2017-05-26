@@ -6,6 +6,11 @@ Collider::Collider(Vector2 offset, Rigidbody* rigidbody)
 	this->offset = offset;
 }
 
+void Collider::setOffset(Vector2 newOffset)
+{
+	offset = newOffset;
+}
+
 Collider::~Collider()
 {
 
@@ -43,6 +48,7 @@ bool RectangleCollider::is_colliding(RectangleCollider* col)
 		this->offset.y < col->offset.y + col->size.y &&
 		this->size.y + this->offset.y > col->offset.y)
 	{
+		
 		return true;
 	}
 	else
