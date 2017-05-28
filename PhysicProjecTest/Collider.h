@@ -4,6 +4,7 @@
 #include "Vector2.h"
 #include "Rigidbody.h"
 
+////////////this class is the parent of other class/////////
 class Collider
 {
 protected:

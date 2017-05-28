@@ -1,6 +1,10 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (PhysicProjecTest.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Main.cpp
   GameObject.cpp
   Génération de code en cours...
+  Compilation en cours...
+  Main.cpp
+  Génération de code en cours...
+  Ignoré... (aucune modification pertinente détectée)
+  Collider.cpp
   PhysicProjecTest.vcxproj -> C:\Users\Client SAV.FNACSAV\documents\visual studio 2015\Projects\PhysicProjecTest\Debug\PhysicsDrive.exe
   PhysicProjecTest.vcxproj -> C:\Users\Client SAV.FNACSAV\documents\visual studio 2015\Projects\PhysicProjecTest\Debug\PhysicsDrive.pdb (Full PDB)

@@ -35,7 +35,7 @@ bool RectangleCollider::is_colliding(Collider* col)
 		return is_colliding(c);
 	}
 }
-
+////////////////same as CircleCollider::is_colliding(RectangleCollider*)///////////
 bool RectangleCollider::is_colliding(CircleCollider* col)
 {
 	return col->is_colliding(this);
@@ -47,8 +47,7 @@ bool RectangleCollider::is_colliding(RectangleCollider* col)
 		this->offset.x + this->size.x > col->offset.x &&
 		this->offset.y < col->offset.y + col->size.y &&
 		this->size.y + this->offset.y > col->offset.y)
-	{
-		
+	{		
 		return true;
 	}
 	else

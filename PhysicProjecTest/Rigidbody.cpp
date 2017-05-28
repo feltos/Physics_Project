@@ -10,7 +10,7 @@
 
 Rigidbody::Rigidbody()
 {
-	///////////pour le temps qui passe///////////////
+	///////////for time///////////////
 	clock_t start_s = clock();
 
 	aabb.size = Vector2(1,1);
@@ -62,6 +62,7 @@ void Rigidbody::SetSpeed(Vector2 newSpeed)
 
 void Rigidbody::Update()
 {
+	///////////work like deltaTime in unity////////////
 	for (float t = 0.0f; ; t += 1.0f / 60.0f)
 	{
 		clock_t time = clock();

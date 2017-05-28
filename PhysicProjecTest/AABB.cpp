@@ -30,7 +30,7 @@ void AABB::setCenter(Vector2 p)
 {
 	center = p;
 }
-
+/////////////////////////for AABB Collision//////////////////////
 bool AABB::IsOverlapping(AABB* aabb)
 {
 	if ((this->center.x + this->size.x) < aabb->center.x || this->center.x > (aabb->center.x + aabb->size.x))
