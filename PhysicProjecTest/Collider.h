@@ -16,6 +16,7 @@ protected:
 public:
 	virtual bool is_colliding(Collider*) = 0;
 	Collider(Vector2 offset, Rigidbody* rigidbody);
+	Collider();
 	sf::Shape* shape;
 	void setOffset(Vector2 offset);
 	~Collider();
@@ -30,9 +31,14 @@ private:
 	friend class CircleCollider;
 public:
 	RectangleCollider(Vector2 size,Vector2 offset,Rigidbody* rigidbody);
+	RectangleCollider();
 	bool is_colliding(Collider*);
 	bool is_colliding(CircleCollider*);
 	bool is_colliding(RectangleCollider*);
+	sf::RectangleShape rectangle;
+	void Rectangle_move();
+	void rectangleUpdate(sf::RenderWindow* w);
+	void SetSize(Vector2 s);
 	~RectangleCollider();
 };
 
@@ -42,10 +48,15 @@ private:
 	float radius;
 public:
 	CircleCollider(float radius,Vector2 offset,Rigidbody* rigidbody);
+	CircleCollider();
 	~CircleCollider();
 	bool is_colliding(Collider*);
 	bool is_colliding(CircleCollider*);
 	bool is_colliding(RectangleCollider*);
+	sf::CircleShape circle;
+	void circleUpdate(sf::RenderWindow* w);
+	void setRadius(float r);
+	void Circle_move();
 };
 
 

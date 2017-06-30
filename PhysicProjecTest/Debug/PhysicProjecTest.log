@@ -1,14 +1,4 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (PhysicProjecTest.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Main.cpp
-  AABB.cpp
-c:\users\client sav.fnacsav\documents\visual studio 2015\projects\physicprojectest\physicprojectest\aabb.cpp(59): warning C4305: 'argument' : troncation de 'double' à 'float'
-c:\users\client sav.fnacsav\documents\visual studio 2015\projects\physicprojectest\physicprojectest\aabb.cpp(60): warning C4305: 'argument' : troncation de 'double' à 'float'
-c:\users\client sav.fnacsav\documents\visual studio 2015\projects\physicprojectest\physicprojectest\aabb.cpp(64): warning C4305: 'argument' : troncation de 'double' à 'float'
-c:\users\client sav.fnacsav\documents\visual studio 2015\projects\physicprojectest\physicprojectest\aabb.cpp(65): warning C4305: 'argument' : troncation de 'double' à 'float'
-c:\users\client sav.fnacsav\documents\visual studio 2015\projects\physicprojectest\physicprojectest\aabb.cpp(69): warning C4305: 'argument' : troncation de 'double' à 'float'
-c:\users\client sav.fnacsav\documents\visual studio 2015\projects\physicprojectest\physicprojectest\aabb.cpp(70): warning C4305: 'argument' : troncation de 'double' à 'float'
-c:\users\client sav.fnacsav\documents\visual studio 2015\projects\physicprojectest\physicprojectest\aabb.cpp(74): warning C4305: 'argument' : troncation de 'double' à 'float'
-c:\users\client sav.fnacsav\documents\visual studio 2015\projects\physicprojectest\physicprojectest\aabb.cpp(75): warning C4305: 'argument' : troncation de 'double' à 'float'
-  Génération de code en cours...
   PhysicProjecTest.vcxproj -> C:\Users\Client SAV.FNACSAV\documents\visual studio 2015\Projects\PhysicProjecTest\Debug\PhysicsDrive.exe
   PhysicProjecTest.vcxproj -> C:\Users\Client SAV.FNACSAV\documents\visual studio 2015\Projects\PhysicProjecTest\Debug\PhysicsDrive.pdb (Full PDB)
