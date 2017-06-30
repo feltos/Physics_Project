@@ -8,28 +8,32 @@
 #include "GameObject.h"
 
 
+
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(1000,800), "TEST");
-	//////////////create a GameObject with size and position////////
-	GameObject rect1(Vector2(500.0f, 500.0f), Vector2(0.0f, 0.0f));
-	rect1.SetColor(sf::Color::Green);
-	rect1.Setspeed(Vector2(1.0f,1.0f));
+	AABB rect1;
+	AABB rect2;
+	rect1.setPosition(Vector2(300.0f, 400.0f));
+	rect1.SetSize(Vector2(100.0f, 100.0f));
+	rect2.setPosition(Vector2(300.0f, 100.0f));
+	rect2.SetSize(Vector2(200.0f, 200.0f));
 
 	while (window.isOpen())
 	{
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			for (float t = 0.0f; ; t += 1.0f / 60.0f)
-			{
-				rect1.SetPos(Vector2(1.0f,1.0f));
-			}
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
+			
+		rect1.AABB_Move();
+		rect1.IsOverlapping(&rect2);
+		rect2.IsOverlapping(&rect1);
 		window.clear();
-		rect1.draw(&window);
+		rect1.update(&window);
+		rect2.update(&window);
 		window.display();
 	}
 	return 0;

@@ -19,9 +19,11 @@ struct AABB
 
 	void update(sf::RenderWindow* w);
 
+	void AABB_Move();
+
 	sf::RectangleShape rectangle;
 	bool IsOverlapping(AABB*);
-	void setCenter(Vector2 position);
+	void setPosition(Vector2 position);
 	~AABB();
 }; 
 

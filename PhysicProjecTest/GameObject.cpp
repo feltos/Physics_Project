@@ -18,7 +18,7 @@ void GameObject::SetPos(Vector2 newPos)
 	position.y += newPos.y + speed.y;
 	rigidbody->SetPos(position);
 	collider->setOffset(position);	
-	aabb.setCenter(position);
+	aabb.setPosition(position);
 	rect.setPosition(position.GetSfmlVector());
 }
 
