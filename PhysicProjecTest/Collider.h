@@ -39,6 +39,7 @@ public:
 	void Rectangle_move();
 	void rectangleUpdate(sf::RenderWindow* w);
 	void SetSize(Vector2 s);
+	void setRectanglePosition(Vector2 p);
 	~RectangleCollider();
 };
 
@@ -56,6 +57,7 @@ public:
 	sf::CircleShape circle;
 	void circleUpdate(sf::RenderWindow* w);
 	void setRadius(float r);
+	void setCirclePosition(Vector2 p);
 	void Circle_move();
 };
 

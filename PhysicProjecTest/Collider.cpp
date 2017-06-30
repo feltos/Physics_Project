@@ -14,6 +14,7 @@ Collider::Collider()
 void Collider::setOffset(Vector2 newOffset)
 {
 	offset = newOffset;
+	
 }
 
 Collider::~Collider()
@@ -25,6 +26,11 @@ RectangleCollider::RectangleCollider(Vector2 size, Vector2 offset, Rigidbody* ri
 {
 	this->size = size;
 	
+}
+
+void RectangleCollider::setRectanglePosition(Vector2 p)
+{
+	rectangle.setPosition(p.GetSfmlVector());
 }
 
 RectangleCollider::RectangleCollider()
@@ -127,6 +133,11 @@ void CircleCollider::setRadius(float r)
 {
 	radius = r;
 	circle.setRadius(r);
+}
+
+void CircleCollider::setCirclePosition(Vector2 p)
+{
+	circle.setPosition(p.GetSfmlVector());
 }
 
 bool CircleCollider::is_colliding(Collider* col)
